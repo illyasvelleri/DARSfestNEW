@@ -1,0 +1,64 @@
+<style>
+    .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+        margin-bottom: 10px;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card img {
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .card-body {
+        text-align: center;
+    }
+
+    .skills {
+        font-size: 0.9em;
+        color: #6c757d;
+    }
+
+    h3 {
+        background: #f5f5f5;
+        padding: 5px;
+        margin-bottom: 20px;
+    }
+</style>
+
+<form action="/admin/start-bid" method="POST">
+  <div class="container mt-5" id="view-categorized">
+    <div class="row">
+      {{#each members}}
+      <div class="col-md-3 mb-4">
+        <div class="card p-3">
+          <div class="card-body pb-0">
+            <!-- Checkbox to select member -->
+            <input type="radio" name="memberId" value="{{this._id}}" class="form-check-input">
+
+            <img src="/images/{{this.img}}" alt="{{this.name}}" class="mb-3" height="70" width="70">
+            <p class="mb-1 fw-bold">Name: {{this.name}}</p>
+            <span class="text-muted">Batch: {{this.batch}}</span>
+            <div class="skills mt-2">
+              {{#each this.skills}}
+              <span class="badge bg-primary">{{this}}</span>
+              {{/each}}
+            </div>
+            <p class="mt-2">Token Number: {{this.tokenNumber}}</p>
+            <p>Category: {{this.category}}</p>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Start Bid</button>
+</form>
+
+

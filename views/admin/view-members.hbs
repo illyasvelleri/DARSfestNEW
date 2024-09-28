@@ -1,0 +1,43 @@
+<!-- views/admin/view-members.hbs -->
+<form action="/admin/categorize-members" method="POST">
+    <div class="container mt-5">
+        <div class="row">
+            {{#each members}}
+            <div class="col-md-3 mb-4">
+                <div class="card p-3">
+                    <div class="card-body pb-0">
+                        <!-- Checkbox to select member -->
+                        <input type="checkbox" name="memberIds" value="{{this._id}}" class="form-check-input">
+
+                        <img src="/images/{{this.img}}" alt="{{this.name}}" class="mb-3" height="70" width="70">
+                        <p class="mb-1 fw-bold">Name: {{this.name}}</p>
+                        <span class="text-muted">Batch: {{this.batch}}</span>
+                        <div class="skills mt-2">
+                            {{#each this.skills}}
+                            <span class="badge bg-primary">{{this}}</span>
+                            {{/each}}
+                        </div>
+                        <p class="mt-2"><strong>Token Number:</strong> {{this.tokenNumber}}</p>
+                        <p><strong>Category:</strong> {{this.category}}</p>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+
+        <!-- Dropdown to select category -->
+        <div class="mt-4">
+            <select name="category" class="form-select" required>
+                <option value="" disabled selected>Select a category</option>
+                <option value="Sub Junior">Sub Junior</option>
+                <option value="Junior">Junior</option>
+                <option value="Senior">Senior</option>
+                <option value="Super Senior">Super Senior</option>
+                <!-- Add other categories as needed -->
+            </select>
+        </div>
+
+        <!-- Button to categorize selected members -->
+        <button type="submit" class="btn btn-primary mt-3">Categorize Selected Members</button>
+    </div>
+</form>

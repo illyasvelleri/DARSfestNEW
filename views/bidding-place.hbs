@@ -1,0 +1,37 @@
+<div class="container mt-5">
+    <h2>Current Bidding</h2>
+    <div class="current-bid-section">
+        <div class="card bg-dark">
+            <div class="container">
+                <div class="row py-4">
+                    <div class="col-md-6">
+                        <div class="img-container">
+                            <img src="/{{member.image}}" class="img-fluid" alt="{{member.name}}" width="400">
+                            <h2>{{member.name}}</h2>
+                        </div>
+                        <div class="btns mt-3">
+                            <button class="btn btn-info bid-btn" data-bid="50">Bid ₹50</button>
+                            <button class="btn btn-info bid-btn" data-bid="100">Bid ₹100</button>
+                            <button class="btn btn-info bid-btn" data-bid="500">Bid ₹500</button>
+                            <button class="btn btn-info bid-btn" data-bid="1000">Bid ₹1000</button>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 m-auto">
+                        <div class="bid-info">
+                            <div class="card text-info">
+                                <p class="text-secondary">{{member.skill}}</p>
+                            </div>
+                            <span>Base Price</span>
+                            <h1 class="base-price shadow">₹{{member.basePrice}}</h1>
+                            <span>Current Bid</span>
+                            <h1 class="current-bid shadow">₹{{member.currentBid}}</h1>
+                            <span>Time Remaining</span>
+                            <h1 class="Time-Remaining shadow">00:00:30</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
